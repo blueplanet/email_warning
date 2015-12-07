@@ -6,14 +6,9 @@ class User < ApplicationMailer
   #   en.user.sign.subject
   #
   def sign
-    @greeting = "Hi"
-
-    part :content_type => "text/html",
-      :body => render_message("send_email_html", :email => email)
-
-    part "text/plain" do |p|
-      p.body = render_message("send_email_plain", :email => email)
-      p.transfer_encoding = "base64"
-    end
+    subject 'subject'
+    from 'test@test.com'
+    sent_on Time.current
+    body email: 'aaa@test.com'
   end
 end
